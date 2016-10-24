@@ -27,6 +27,5 @@ public class AttItemHolder extends RecyclerView.ViewHolder {
         tvOn=(TextView)itemView.findViewById(R.id.item_attend_on);
         tvOff=(TextView)itemView.findViewById(R.id.item_attend_off);
         tvDate=(TextView)itemView.findViewById(R.id.item_attend_date);
-
     }
 }
