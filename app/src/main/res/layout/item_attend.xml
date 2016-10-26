@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/item_attend_on"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"/>
-
-    <TextView
-        android:id="@+id/item_attend_off"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"/>
-
-    <TextView
-        android:id="@+id/item_attend_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"/>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="68dp">
 
     <ImageView
         android:id="@+id/item_attend_state"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:src="@drawable/state_on"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginLeft="92dp"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/item_attend_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayMain"
+            android:text="on xx:xx"/>
+
+        <TextView
+            android:id="@+id/item_attend_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/grayMain"
+            android:text="off xx:xx"/>
+    </LinearLayout>
+
+
+    <TextView
+    android:id="@+id/item_attend_date"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/grayMain"
+    android:layout_gravity="center_vertical|end"
+    android:layout_marginRight="@dimen/horizontal_margin"
+    android:text="xxxx-xx-xx"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/grayLine"/>
+
+
+</FrameLayout>

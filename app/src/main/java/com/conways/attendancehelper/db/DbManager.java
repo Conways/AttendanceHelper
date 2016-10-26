@@ -68,7 +68,8 @@ public class DbManager {
      */
     public List<AttendanceEntity> getAttends(int page, int num) {
         check();
-        return dao.queryBuilder().offset(page * num).limit(num).list();
+        return dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties.Data).offset(page * num)
+                .limit(num).list();
     }
 
     /**
