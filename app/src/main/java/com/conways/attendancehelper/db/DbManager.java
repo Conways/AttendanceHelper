@@ -7,6 +7,7 @@ import com.conways.attendancehelper.db.dao.DaoMaster;
 import com.conways.attendancehelper.db.dao.DaoSession;
 import com.conways.attendancehelper.model.AttendanceEntity;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.query.QueryBuilder;
 import org.greenrobot.greendao.query.WhereCondition;
 
@@ -82,8 +83,17 @@ public class DbManager {
         QueryBuilder queryBuilder = dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties
                 .Data).limit(1);
         List<AttendanceEntity> list = queryBuilder.list();
-        AttendanceEntity attendanceEntity = list.size() >= 0 ? list.get(0) : null;
+        AttendanceEntity attendanceEntity = list.size() > 0 ? list.get(0) : null;
         return attendanceEntity;
+    }
+
+    /**
+     * 修改一条数据
+     * @param entity
+     */
+    public void updateAttend(AttendanceEntity entity){
+        check();
+        dao.update(entity);
     }
 
     private void check() {

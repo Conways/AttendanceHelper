@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.holder.AttItemHolder;
@@ -45,14 +46,15 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
     @Override
     public void onBindViewHolder(AttItemHolder holder, int position) {
         AttendanceEntity entity = list.get(position);
-        holder.tvOn.setText(entity.getOnTime() == 0 ? "未打卡" : "上班时间：" + TimeUtil.getTimeFromTimeStamp
-                (entity.getOnTime()));
-        holder.tvOff.setText(entity.getOffTime() == 0 ? "未打卡" : "下班时间：" + TimeUtil
+        holder.tvOn.setText(entity.getOnTime() == null ? "未打卡" : "上班时间：" + TimeUtil
+                .getTimeFromTimeStamp
+                        (entity.getOnTime()));
+        holder.tvOff.setText(entity.getOffTime() == null ? "未打卡" : "下班时间：" + TimeUtil
                 .getTimeFromTimeStamp(entity
                         .getOffTime()));
-        holder.tvDate.setText(entity.getData() == 0 ? "" : TimeUtil.getDateFromTimeStamp(entity
+        holder.tvDate.setText(entity.getData() == null ? "" : TimeUtil.getDateFromTimeStamp(entity
                 .getData()) + " " + TimeUtil.getWeekDayFromTimeStamp(entity.getData()));
-        holder.ivState.setImageResource(isNormal(entity) ? R.drawable.state_on : R.drawable.state_off);
+//        holder.ivState.setImageResource(isNormal(entity) ? R.drawable.state_on : R.drawable.state_off);
     }
 
     @Override
@@ -60,8 +62,27 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
         return list.size();
     }
 
+    private void update(TextView tvState, AttendanceEntity entity) {
+        if (!TimeUtil.isToday(entity.getData())) {
+            //下班未打卡
+            if (entity.getOffTime() == null) {
+                if (TimeUtil.getHour(entity.getOnTime()) > 10) {
+                    tvState.setText("迟到，下班未打卡");
+                } else {
+                    tvState.setText("下班未打卡");
+                }
+                return;
+            }
+            //上下班都打卡了
+            if (entity.getOffTime() != null ) {
+                if (TimeUtil.getHour(entity.getOnTime()) <= 10)
+                tvState.setText("迟到，下班未打卡");
+                return;
+            }
 
-    private boolean isNormal(AttendanceEntity entity) {
-        return false;
+        }
+
     }
+
+
 }

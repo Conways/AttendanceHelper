@@ -5,7 +5,12 @@ package com.conways.attendancehelper.view;
  */
 public interface MainView {
 
-    void setState(String state,boolean isOn);
+    void setState(String state, boolean isOn);
+
     void update();
+
+    void showMsg(int stringId);
+
+    void showDialog();
 
 }

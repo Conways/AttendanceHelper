@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
     }
 
     @Override
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
             list = new ArrayList<>();
         }
         list.clear();
-        list.addAll(DbManager.getInstance().getAttends(0,5));
+        list.addAll(DbManager.getInstance().getAttends(0, 5));
         if (null == attendAdapter) {
             attendAdapter = new AttendAdapter(list, this);
             rvAttend.setAdapter(attendAdapter);
@@ -89,5 +88,15 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
             tvState.setText(state);
             flAction.setEnabled(true);
         }
+    }
+
+    @Override
+    public void showMsg(int StringId) {
+
+    }
+
+    @Override
+    public void showDialog() {
+
     }
 }

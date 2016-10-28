@@ -77,11 +77,51 @@ public class TimeUtil {
 
             default:
                 break;
-
-
         }
         return weekDay;
     }
 
+    /**
+     * 根据时间戳获取该时间戳的0点时间戳
+     *
+     * @param timeStamp
+     * @return
+     */
+    public static long getZeroTime(long timeStamp) {
+        Calendar todayStart = Calendar.getInstance();
+        todayStart.setTimeInMillis(timeStamp);
+        todayStart.set(Calendar.HOUR_OF_DAY, 0);
+        todayStart.set(Calendar.MINUTE, 0);
+        todayStart.set(Calendar.SECOND, 0);
+        todayStart.set(Calendar.MILLISECOND, 0);
+        return todayStart.getTimeInMillis();
+    }
+
+    /**
+     * 判断两个时间戳是不是同一天
+     *
+     * @param timeStamp1
+     * @param timeStamp2
+     * @return
+     */
+    public static boolean isSameDay(long timeStamp1, long timeStamp2) {
+        return getZeroTime(timeStamp1) == getZeroTime(timeStamp2);
+    }
+
+    /**
+     * 判断一个时间戳是不是今天
+     *
+     * @param timeStamp
+     * @return
+     */
+    public static boolean isToday(long timeStamp) {
+        return getZeroTime(timeStamp) == getZeroTime(System.currentTimeMillis());
+    }
+
+    public static int getHour(long timeStamp) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeStamp);
+        return calendar.get(Calendar.HOUR_OF_DAY);
+    }
 
 }
