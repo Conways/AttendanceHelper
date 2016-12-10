@@ -118,10 +118,22 @@ public class TimeUtil {
         return getZeroTime(timeStamp) == getZeroTime(System.currentTimeMillis());
     }
 
+    /**
+     * 从一个时间戳里获取当前小时
+     * @param timeStamp
+     * @return
+     */
     public static int getHour(long timeStamp) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeStamp);
         return calendar.get(Calendar.HOUR_OF_DAY);
+    }
+
+
+    public static int getMinute(long timeStamp){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeStamp);
+        return calendar.get(Calendar.MINUTE);
     }
 
 }

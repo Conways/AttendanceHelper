@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">考勤助手</string>
+    <string name="app_name" translatable="false">考勤助手</string>
     <string name="insert_failed">打卡失败</string>
 </resources>

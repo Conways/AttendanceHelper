@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grayBg"
@@ -16,25 +17,25 @@
             android:id="@+id/fl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            tools:ignore="UselessParent">
 
             <ImageView
                 android:layout_width="208dp"
                 android:layout_height="208dp"
-                android:background="@drawable/circle_deep"/>
+                android:background="@drawable/circle_deep"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
-                android:layout_gravity="center"
                 android:textSize="36sp"/>
 
         </FrameLayout>
-
-
     </FrameLayout>
 
 

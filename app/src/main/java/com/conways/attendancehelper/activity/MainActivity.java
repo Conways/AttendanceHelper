@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         mainPresenter = new MainPresenter(this, this);
         rvAttend = (RecyclerView) this.findViewById(R.id.rv);
         rvAttend.setLayoutManager(new LinearLayoutManager(this));
+
         tvState = (TextView) this.findViewById(R.id.action);
         flAction = (FrameLayout) this.findViewById(R.id.fl);
         flAction.setOnClickListener(this);
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
             list = new ArrayList<>();
         }
         list.clear();
-        list.addAll(DbManager.getInstance().getAttends(0, 5));
+        list.addAll(DbManager.getInstance().getAllAttends());
         if (null == attendAdapter) {
             attendAdapter = new AttendAdapter(list, this);
             rvAttend.setAdapter(attendAdapter);

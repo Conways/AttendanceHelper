@@ -49,18 +49,32 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
         holder.tvOn.setText(entity.getOnTime() == null ? "未打卡" : "上班时间：" + TimeUtil
                 .getTimeFromTimeStamp
                         (entity.getOnTime()));
-        holder.tvOff.setText(entity.getOffTime() == null ? "未打卡" : "下班时间：" + TimeUtil
-                .getTimeFromTimeStamp(entity
-                        .getOffTime()));
-        holder.tvDate.setText(entity.getData() == null ? "" : TimeUtil.getDateFromTimeStamp(entity
-                .getData()) + " " + TimeUtil.getWeekDayFromTimeStamp(entity.getData()));
-//        holder.ivState.setImageResource(isNormal(entity) ? R.drawable.state_on : R.drawable.state_off);
-    }
+    holder.tvOff.setText(entity.getOffTime() == null ? "未打卡" : "下班时间：" + TimeUtil
+            .getTimeFromTimeStamp(entity
+            .getOffTime()));
+    holder.tvDate.setText(entity.getData() == null ? "" : TimeUtil.getDateFromTimeStamp(entity
+            .getData()) + " " + TimeUtil.getWeekDayFromTimeStamp(entity.getData()));
+    holder.ivState.setImageResource(isNorMal(entity) ? R.drawable.state_on : R.drawable.state_off);
+}
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+    private boolean isNorMal(AttendanceEntity entity){
+        if (TimeUtil.getHour(entity.getOnTime())>10){
+            return false;
+        }
+        int hour=TimeUtil.getHour(entity.getOffTime()==null?0:entity.getOffTime());
+        int miute=TimeUtil.getMinute(entity.getOffTime()==null?0:entity.getOffTime());
+        if (hour*100+miute<1730){
+            return false;
+        }
+        return true;
+    }
+
+
 
     private void update(TextView tvState, AttendanceEntity entity) {
         if (!TimeUtil.isToday(entity.getData())) {
@@ -75,9 +89,9 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
             }
             //上下班都打卡了
             if (entity.getOffTime() != null ) {
-                if (TimeUtil.getHour(entity.getOnTime()) <= 10)
-                tvState.setText("迟到，下班未打卡");
-                return;
+                    if (TimeUtil.getHour(entity.getOnTime()) <= 10)
+                        tvState.setText("迟到，下班未打卡");
+                    return;
             }
 
         }

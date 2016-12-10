@@ -29,7 +29,7 @@ public class DbManager {
     public static DbManager getInstance() {
         if (null == instance) {
             synchronized (DbManager.class) {
-                if (null == null) {
+                if (null == instance) {
                     instance = new DbManager();
                 }
             }
@@ -72,6 +72,16 @@ public class DbManager {
         return dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties.Data).offset(page * num)
                 .limit(num).list();
     }
+
+    /**
+     * 获取所有的数据
+     * @return
+     */
+    public List<AttendanceEntity> getAllAttends() {
+        check();
+        return dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties.Data).list();
+    }
+
 
     /**
      * 获取最近一次插入的数据
