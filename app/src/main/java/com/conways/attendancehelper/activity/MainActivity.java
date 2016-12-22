@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.conways.attendancehelper.R;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     private RecyclerView rvAttend;
     private TextView tvState;
     private FrameLayout flAction;
+    private ImageView ivCalendar;
     private AttendAdapter attendAdapter;
 
     @Override
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         tvState = (TextView) this.findViewById(R.id.action);
         flAction = (FrameLayout) this.findViewById(R.id.fl);
         flAction.setOnClickListener(this);
+        ivCalendar=(ImageView)this.findViewById(R.id.calendar);
+        ivCalendar.setOnClickListener(this);
+
     }
 
     @Override

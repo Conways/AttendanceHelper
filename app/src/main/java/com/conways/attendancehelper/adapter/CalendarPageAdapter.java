@@ -1,9 +1,10 @@
 package com.conways.attendancehelper.adapter;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.conways.attendancehelper.fragment.BaseFragment;
 
 import java.util.List;
 
@@ -14,9 +15,9 @@ import java.util.List;
 public class CalendarPageAdapter extends FragmentPagerAdapter {
 
 
-    private List<Fragment> list;
+    private List<BaseFragment> list;
 
-    public CalendarPageAdapter(FragmentManager fm, List<Fragment> list) {
+    public CalendarPageAdapter(FragmentManager fm, List<BaseFragment> list) {
         super(fm);
         this.list = list;
     }
@@ -31,4 +32,6 @@ public class CalendarPageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return list.size();
     }
+
+
 }

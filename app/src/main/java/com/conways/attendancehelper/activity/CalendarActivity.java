@@ -1,22 +1,21 @@
 package com.conways.attendancehelper.activity;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.adapter.CalendarPageAdapter;
+import com.conways.attendancehelper.fragment.BaseFragment;
 import com.conways.attendancehelper.fragment.CalendarPageFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CalendarActivity extends FragmentActivity implements CalendarPageFragment.OnFragmentInteractionListener {
+public class CalendarActivity extends FragmentActivity {
     private ViewPager viewPager;
     private CalendarPageAdapter calendarPageAdapter;
-    private List<Fragment> list;
+    private List<BaseFragment> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +31,14 @@ public class CalendarActivity extends FragmentActivity implements CalendarPageFr
     }
 
     private void initView() {
-        viewPager = (ViewPager) this.findViewById(R.id.calendar_pager_grid);
+        viewPager = (ViewPager) this.findViewById(R.id.vp);
     }
 
     private void update(long currentTime) {
         list.clear();
-        list.add(CalendarPageFragment.newInstance(currentTime));
-        list.add(CalendarPageFragment.newInstance(currentTime));
-        list.add(CalendarPageFragment.newInstance(currentTime));
+        list.add(new CalendarPageFragment());
+        list.add(new CalendarPageFragment());
+        list.add(new CalendarPageFragment());
         if (null == calendarPageAdapter) {
             calendarPageAdapter = new CalendarPageAdapter(getSupportFragmentManager(), list);
             viewPager.setAdapter(calendarPageAdapter);
@@ -48,8 +47,4 @@ public class CalendarActivity extends FragmentActivity implements CalendarPageFr
         }
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 }
