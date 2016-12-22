@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.adapter.AttendAdapter;
 import com.conways.attendancehelper.db.DbManager;
-import com.conways.attendancehelper.model.AttendanceEntity;
+import com.conways.attendancehelper.model.entity.AttendanceEntity;
 import com.conways.attendancehelper.presenter.MainPresenter;
 import com.conways.attendancehelper.view.MainView;
 
@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     private RecyclerView rvAttend;
     private TextView tvState;
     private FrameLayout flAction;
-
     private AttendAdapter attendAdapter;
-    private List<AttendanceEntity> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
             case R.id.fl:
                 mainPresenter.action();
                 break;
+            case R.id.calendar:
+                mainPresenter.toCalendar();
+                break;
             default:
                 break;
 
@@ -58,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         mainPresenter = new MainPresenter(this, this);
         rvAttend = (RecyclerView) this.findViewById(R.id.rv);
         rvAttend.setLayoutManager(new LinearLayoutManager(this));
-
         tvState = (TextView) this.findViewById(R.id.action);
         flAction = (FrameLayout) this.findViewById(R.id.fl);
         flAction.setOnClickListener(this);
@@ -66,15 +66,11 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
 
     @Override
     public void update() {
-        if (null == list) {
-            list = new ArrayList<>();
-        }
-        list.clear();
-        list.addAll(DbManager.getInstance().getAllAttends());
         if (null == attendAdapter) {
-            attendAdapter = new AttendAdapter(list, this);
+            attendAdapter = new AttendAdapter(mainPresenter.getEntities(), this);
             rvAttend.setAdapter(attendAdapter);
         } else {
+            mainPresenter.getEntities();
             attendAdapter.notifyDataSetChanged();
         }
     }

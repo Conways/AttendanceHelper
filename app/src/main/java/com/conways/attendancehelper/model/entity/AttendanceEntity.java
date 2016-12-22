@@ -1,4 +1,4 @@
-package com.conways.attendancehelper.model;
+package com.conways.attendancehelper.model.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;

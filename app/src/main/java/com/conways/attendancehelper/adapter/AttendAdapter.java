@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.holder.AttItemHolder;
-import com.conways.attendancehelper.model.AttendanceEntity;
+import com.conways.attendancehelper.model.entity.AttendanceEntity;
 import com.conways.attendancehelper.utils.TimeUtil;
 
 import java.util.List;
@@ -54,7 +54,7 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
             .getOffTime()));
     holder.tvDate.setText(entity.getData() == null ? "" : TimeUtil.getDateFromTimeStamp(entity
             .getData()) + " " + TimeUtil.getWeekDayFromTimeStamp(entity.getData()));
-    holder.ivState.setImageResource(isNorMal(entity) ? R.drawable.state_on : R.drawable.state_off);
+    holder.ivState.setImageResource(isNorMal(entity) ? R.mipmap.ic_launcher : R.mipmap.ic_launcher);
 }
 
     @Override

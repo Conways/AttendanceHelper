@@ -5,11 +5,9 @@ import android.content.Context;
 import com.conways.attendancehelper.db.dao.AttendanceEntityDao;
 import com.conways.attendancehelper.db.dao.DaoMaster;
 import com.conways.attendancehelper.db.dao.DaoSession;
-import com.conways.attendancehelper.model.AttendanceEntity;
+import com.conways.attendancehelper.model.entity.AttendanceEntity;
 
-import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.query.QueryBuilder;
-import org.greenrobot.greendao.query.WhereCondition;
 
 import java.util.List;
 
@@ -75,6 +73,7 @@ public class DbManager {
 
     /**
      * 获取所有的数据
+     *
      * @return
      */
     public List<AttendanceEntity> getAllAttends() {
@@ -99,9 +98,10 @@ public class DbManager {
 
     /**
      * 修改一条数据
+     *
      * @param entity
      */
-    public void updateAttend(AttendanceEntity entity){
+    public void updateAttend(AttendanceEntity entity) {
         check();
         dao.update(entity);
     }

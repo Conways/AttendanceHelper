@@ -1,4 +1,4 @@
-package com.conways.attendancehelper.model;
+package com.conways.attendancehelper.model.entity;
 
 /**
  * Created by John on 2016/10/24.

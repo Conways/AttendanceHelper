@@ -9,7 +9,7 @@
         android:layout_height="48dp"
         android:layout_gravity="center_vertical|start"
         android:layout_marginLeft="@dimen/horizontal_margin"
-        android:src="@drawable/state_on"/>
+        android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,27 +22,27 @@
             android:id="@+id/item_attend_on"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/grayMain"
-            android:text="on xx:xx"/>
+            android:text="on xx:xx"
+            android:textColor="@color/grayMain"/>
 
         <TextView
             android:id="@+id/item_attend_off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="@color/grayMain"
-            android:text="off xx:xx"/>
+            android:text="off xx:xx"
+            android:textColor="@color/grayMain"/>
     </LinearLayout>
 
 
     <TextView
-    android:id="@+id/item_attend_date"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="@color/grayMain"
-    android:layout_gravity="center_vertical|end"
-    android:layout_marginRight="@dimen/horizontal_margin"
-    android:text="xxxx-xx-xx"/>
+        android:id="@+id/item_attend_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginRight="@dimen/horizontal_margin"
+        android:text="xxxx-xx-xx"
+        android:textColor="@color/grayMain"/>
 
     <View
         android:layout_width="match_parent"
