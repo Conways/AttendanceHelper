@@ -5,7 +5,7 @@ import android.content.Context;
 import com.conways.attendancehelper.db.dao.AttendanceEntityDao;
 import com.conways.attendancehelper.db.dao.DaoMaster;
 import com.conways.attendancehelper.db.dao.DaoSession;
-import com.conways.attendancehelper.model.entity.AttendanceEntity;
+import com.conways.attendancehelper.db.dbEntity.AttendanceEntity;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 

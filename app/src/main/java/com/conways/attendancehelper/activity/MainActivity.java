@@ -11,13 +11,8 @@ import android.widget.TextView;
 
 import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.adapter.AttendAdapter;
-import com.conways.attendancehelper.db.DbManager;
-import com.conways.attendancehelper.model.entity.AttendanceEntity;
 import com.conways.attendancehelper.presenter.MainPresenter;
 import com.conways.attendancehelper.view.MainView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainView, View.OnClickListener {
 

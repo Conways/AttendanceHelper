@@ -8,7 +8,7 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
-import com.conways.attendancehelper.model.entity.AttendanceEntity;
+import com.conways.attendancehelper.db.dbEntity.AttendanceEntity;
 
 import com.conways.attendancehelper.db.dao.AttendanceEntityDao;
 

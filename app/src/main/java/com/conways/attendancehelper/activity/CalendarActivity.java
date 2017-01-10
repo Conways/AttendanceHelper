@@ -23,7 +23,7 @@ public class CalendarActivity extends FragmentActivity {
         setContentView(R.layout.activity_calendar);
         initData();
         initView();
-        update(System.currentTimeMillis());
+//        update(System.currentTimeMillis());
     }
 
     private void initData() {
@@ -31,7 +31,7 @@ public class CalendarActivity extends FragmentActivity {
     }
 
     private void initView() {
-        viewPager = (ViewPager) this.findViewById(R.id.vp);
+//        viewPager = (ViewPager) this.findViewById(R.id.vp);
     }
 
     private void update(long currentTime) {

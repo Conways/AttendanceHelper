@@ -7,7 +7,7 @@ import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.activity.CalendarActivity;
 import com.conways.attendancehelper.db.DbManager;
 import com.conways.attendancehelper.model.MainModel;
-import com.conways.attendancehelper.model.entity.AttendanceEntity;
+import com.conways.attendancehelper.db.dbEntity.AttendanceEntity;
 import com.conways.attendancehelper.utils.TimeUtil;
 import com.conways.attendancehelper.view.MainView;
 

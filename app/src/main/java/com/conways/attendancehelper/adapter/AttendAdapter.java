@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.conways.attendancehelper.R;
 import com.conways.attendancehelper.holder.AttItemHolder;
-import com.conways.attendancehelper.model.entity.AttendanceEntity;
+import com.conways.attendancehelper.db.dbEntity.AttendanceEntity;
 import com.conways.attendancehelper.utils.TimeUtil;
 
 import java.util.List;
