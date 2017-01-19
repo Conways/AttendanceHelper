@@ -1,6 +1,6 @@
 package com.conways.attendancehelper.model;
 
-import com.conways.attendancehelper.db.DbManager;
+import com.conways.attendancehelper.db.dbmanager.DbManager;
 import com.conways.attendancehelper.db.dbEntity.AttendanceEntity;
 
 import java.util.ArrayList;

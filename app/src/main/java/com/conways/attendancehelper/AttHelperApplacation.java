@@ -2,7 +2,8 @@ package com.conways.attendancehelper;
 
 import android.app.Application;
 
-import com.conways.attendancehelper.db.DbManager;
+import com.conways.attendancehelper.db.dbmanager.DbManager;
+import com.conways.attendancehelper.db.dbmanager.TestDbManager;
 
 /**
  * Created by John on 2016/10/20.
@@ -21,5 +22,6 @@ public class AttHelperApplacation extends Application {
 
     private void initDb() {
         DbManager.getInstance().init(this);
+        TestDbManager.getInstance().init(this);
     }
 }

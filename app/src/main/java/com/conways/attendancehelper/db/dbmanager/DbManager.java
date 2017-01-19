@@ -1,4 +1,4 @@
-package com.conways.attendancehelper.db;
+package com.conways.attendancehelper.db.dbmanager;
 
 import android.content.Context;
 
@@ -14,14 +14,14 @@ import java.util.List;
 /**
  * Created by John on 2016/10/24.
  */
-public class DbManager {
+public class DbManager extends BaseManager{
 
     private static DbManager instance;
     private AttendanceEntityDao dao;
-    private String dbName = "attendance_helper_db";
+
 
     private DbManager() {
-
+        super();
     }
 
     public static DbManager getInstance() {
@@ -41,9 +41,7 @@ public class DbManager {
      * @param context
      */
     public void init(Context context) {
-        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(context, dbName);
-        DaoMaster daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
-        DaoSession daoSession = daoMaster.newSession();
+        super.init(context);
         dao = daoSession.getAttendanceEntityDao();
     }
 
@@ -54,7 +52,7 @@ public class DbManager {
      * @return
      */
     public boolean addAttendace(AttendanceEntity attEntity) {
-        check();
+        check(dao);
         return dao.insert(attEntity) != -1;
     }
 
@@ -66,7 +64,7 @@ public class DbManager {
      * @return
      */
     public List<AttendanceEntity> getAttends(int page, int num) {
-        check();
+        check(dao);
         return dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties.Data).offset(page * num)
                 .limit(num).list();
     }
@@ -77,7 +75,7 @@ public class DbManager {
      * @return
      */
     public List<AttendanceEntity> getAllAttends() {
-        check();
+        check(dao);
         return dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties.Data).list();
     }
 
@@ -88,7 +86,7 @@ public class DbManager {
      * @return
      */
     public AttendanceEntity getLastAttend() {
-        check();
+        check(dao);
         QueryBuilder queryBuilder = dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties
                 .Data).limit(1);
         List<AttendanceEntity> list = queryBuilder.list();
@@ -102,13 +100,9 @@ public class DbManager {
      * @param entity
      */
     public void updateAttend(AttendanceEntity entity) {
-        check();
+        check(dao);
         dao.update(entity);
     }
 
-    private void check() {
-        if (null == dao)
-            throw new NullPointerException("please init DbManager first,suggest call init(Context" +
-                    " context)" + " in applacation oncreate!!!");
-    }
+
 }
