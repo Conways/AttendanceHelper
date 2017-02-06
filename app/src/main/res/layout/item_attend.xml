@@ -5,11 +5,10 @@
 
     <ImageView
         android:id="@+id/item_attend_state"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center_vertical|start"
-        android:layout_marginLeft="@dimen/horizontal_margin"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start"
+        android:src="@drawable/normal"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

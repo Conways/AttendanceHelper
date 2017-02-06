@@ -34,7 +34,7 @@ public class MainModel {
 
 
     public boolean addData(AttendanceEntity attendanceEntity) {
-        return false;
+        return DbManager.getInstance().addAttendace(attendanceEntity);
     }
 
 

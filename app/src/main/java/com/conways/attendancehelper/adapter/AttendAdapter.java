@@ -54,7 +54,8 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
             .getOffTime()));
     holder.tvDate.setText(entity.getData() == null ? "" : TimeUtil.getDateFromTimeStamp(entity
             .getData()) + " " + TimeUtil.getWeekDayFromTimeStamp(entity.getData()));
-    holder.ivState.setImageResource(isNorMal(entity) ? R.mipmap.ic_launcher : R.mipmap.ic_launcher);
+    holder.ivState.setImageResource(TimeUtil.isWorkDay(entity.getData()) ? R.drawable.normal : R.drawable
+            .overtime);
 }
 
     @Override
@@ -62,17 +63,6 @@ public class AttendAdapter extends RecyclerView.Adapter<AttItemHolder> {
         return list.size();
     }
 
-    private boolean isNorMal(AttendanceEntity entity){
-        if (TimeUtil.getHour(entity.getOnTime())>10){
-            return false;
-        }
-        int hour=TimeUtil.getHour(entity.getOffTime()==null?0:entity.getOffTime());
-        int miute=TimeUtil.getMinute(entity.getOffTime()==null?0:entity.getOffTime());
-        if (hour*100+miute<1730){
-            return false;
-        }
-        return true;
-    }
 
 
 

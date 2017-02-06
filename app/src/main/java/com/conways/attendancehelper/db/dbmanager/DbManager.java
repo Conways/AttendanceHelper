@@ -63,7 +63,7 @@ public class DbManager extends BaseManager{
      * @param num  每页条数
      * @return
      */
-    public List<AttendanceEntity> getAttends(int page, int num) {
+    public List<AttendanceEntity> getAttendsByPage(int page, int num) {
         check(dao);
         return dao.queryBuilder().orderDesc(AttendanceEntityDao.Properties.Data).offset(page * num)
                 .limit(num).list();

@@ -82,6 +82,18 @@ public class TimeUtil {
     }
 
     /**
+     * 判断一个时间点是不是在工作日
+     * @param timeStamp
+     * @return
+     */
+    public static boolean isWorkDay(long timeStamp){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeStamp);
+        int day=calendar.get(Calendar.DAY_OF_WEEK);
+        return day!=Calendar.SUNDAY&&day!=Calendar.SATURDAY;
+    }
+
+    /**
      * 根据时间戳获取该时间戳的0点时间戳
      *
      * @param timeStamp

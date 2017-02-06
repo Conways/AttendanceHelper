@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         flAction.setOnClickListener(this);
         ivCalendar=(ImageView)this.findViewById(R.id.calendar);
         ivCalendar.setOnClickListener(this);
+        ivCalendar.setVisibility(View.GONE);
 
     }
 
